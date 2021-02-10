@@ -1,5 +1,11 @@
 # CONTINUOUS DELIBERY (CD) ♾️
 ### Maven example "hello world"
+Using:
+- Spring
+- Github
+- Docker
+- Maven
+
 
 Go to [start.spring.io](https://start.spring.io/) for create a example "hello world" app
 
@@ -22,7 +28,7 @@ ls -a
 # src
 ```
 
-Init the repository and upload it to github:
+Init the repository and upload it to github (generate it first on github):
 ```bash
 git init
 git add .
@@ -30,3 +36,15 @@ git commit -m "add files generated with start.spring.io, maven example project"
 git remote add origin git@github.com:iranzoferri/continuous-delivery-example.git
 ```
 
+Ok, now we go to build the application using docker, manually.
+
+```bash
+absolute_path=/home/... # <-- Put here the project path
+docker container run --rm -it -v ${absolute_path}/continuous-delivery-example:/app maven:alpine sh
+```
+
+This provide us a running container with an interactive shell for typing next command:
+
+```bash
+mvn spring-boot:run
+```
