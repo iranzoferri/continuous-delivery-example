@@ -40,11 +40,33 @@ Ok, now we go to build the application using docker, manually.
 
 ```bash
 absolute_path=/home/... # <-- Put here the project path
+
+# Create a volume for persistence:
+docker volume create m2
+
+# Run maven container:
 docker container run --rm -it -v ${absolute_path}/continuous-delivery-example:/app maven:alpine sh
 ```
 
 This provide us a running container with an interactive shell for typing next command:
 
 ```bash
-mvn spring-boot:run
+mvn spring-boot:run -f app/pom.xml
+```
+
+This is the result (You will see a lot of lines)
+![build_success](img/build_success.png)
+
+Inside the container:
+```bash
+ls /root/.m2/
+# repository
+# copy_reference_file.log
+# settings-docker.xml
+```
+
+Then, now we can simplify the build process with docker with persistence, using this command:
+
+```bash
+docker container run --rm -it -v m2:/root/.m2 -v /home/jaime/repos/github/continuous-delivery-example:/app maven:alpine mvn spring-boot:run -f app/pom.xml
 ```
