@@ -160,10 +160,11 @@ Pay attention to the port change 8081 --> 8080, outside/inside.
 
 ![second_build_success](img/second_build_success.png)
 
-Now, you be abble to Continuous Delibery. It's great!
+Now, you be able to Continuous Delivery. It's great!
 
 
-# Merge all the changes into the main branch.
+Merge all the changes into the main branch.
+```bash
 git merge webapp
 git branch -D webapp # <-- delete unused branch
-
+```
