@@ -145,3 +145,25 @@ curl http://localhost:8080
 # {"timestamp":"2021-02-11T13:10:56.933+00:00","status":404,"error":"Not Found","message":"","path":"/"}
 ```
 
+This is because annotations are missing, but don't worry, "v2" has already been fixed and what you will see is this:
+
+```bash
+# From your system:
+ ~$ curl http://localhost:8081
+Hello World!
+# or inside the container:
+docker exec -it maven_alpine /bin/bash
+curl http://localhost:8080
+```
+
+Pay attention to the port change 8081 --> 8080, outside/inside.
+
+![second_build_success](img/second_build_success.png)
+
+Now, you be abble to Continuous Delibery. It's great!
+
+
+# Merge all the changes into the main branch.
+git merge webapp
+git branch -D webapp # <-- delete unused branch
+
