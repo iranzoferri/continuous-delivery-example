@@ -1,13 +1,14 @@
 # CONTINUOUS DELIBERY (CD) ♾️
 ### Maven example "hello world"
 Using:
-- Spring
+- Spring (2.4.2)
 - Github
 - Docker
 - Maven
 
+Learned in the course [LFS261](https://training.linuxfoundation.org/training/devops-and-sre-fundamentals-implementing-continuous-delivery-lfs261/)
 
-Go to [start.spring.io](https://start.spring.io/) for create a example "hello world" app
+Lets started. Go to [start.spring.io](https://start.spring.io/) for create a example "hello world" app
 
 ![spring.io](img/spring.io.png)
 
@@ -70,3 +71,26 @@ Then, now we can simplify the build process with docker with persistence, using 
 ```bash
 docker container run --rm -it -v m2:/root/.m2 -v /home/jaime/repos/github/continuous-delivery-example:/app maven:alpine mvn spring-boot:run -f app/pom.xml
 ```
+
+## CREATE A GIT BRANCH
+
+Now, we create a branch (and switch to it with -b <new_branch>) named "webapp"
+
+```bash
+git checkout -b webapp
+```
+
+![git_new_branch](img/git_new_branch.png)
+
+Now, you can begin to code a "Hello world" example or simply catch it from this repository of the recomended [LFS261 course](https://training.linuxfoundation.org/training/devops-and-sre-fundamentals-implementing-continuous-delivery-lfs261/), or follow the instructions placed in the [spring-guides](https://github.com/spring-guides/gs-spring-boot) repository, .
+
+Maybe you desire implement a more complex project, you can find some interesting tutorials like "api REST" or "OAuth2"... in this web site [howtodoinjava.com](https://howtodoinjava.com/spring-boot2/rest/rest-api-example/)
+
+You decide, but in the course [LFS261](https://training.linuxfoundation.org/training/devops-and-sre-fundamentals-implementing-continuous-delivery-lfs261/) of "The Linux Foundation" given by "Gourav Shah" you will be able to learn in detail the whole process of implementation of Continuous Deployment, I recommend it. I'm going to continue with the [LFS261](https://training.linuxfoundation.org/training/devops-and-sre-fundamentals-implementing-continuous-delivery-lfs261/) example tutorial.
+
+Now, copy te contents of this two files:
+- [HellocdApplication.java.v1](https://raw.githubusercontent.com/lfs261/devops-repo/master/hellocd/HellocdApplication.java.v1) <-- Replace
+- [pom.xml](https://raw.githubusercontent.com/lfs261/devops-repo/master/hellocd/pom.xml.snippet1) <-- Insert (see photo)
+
+![replace_pom](img/replace_pom.png)
+
