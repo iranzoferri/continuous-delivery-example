@@ -212,4 +212,5 @@ git push all main
 ```
 
 See the result:
+
 ![git_multi_push](img/git_multi_push.png)
