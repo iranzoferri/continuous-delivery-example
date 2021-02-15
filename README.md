@@ -214,3 +214,16 @@ git push all main
 See the result:
 
 ![git_multi_push](img/git_multi_push.png)
+
+
+### DELETE BRANCH
+
+```bash
+git checkout main
+git merge webapp
+git branch -d webapp
+git push origin --delete webapp
+# or --> git push origin :webapp
+```
+
+That's all! See you later.
