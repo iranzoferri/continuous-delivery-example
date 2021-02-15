@@ -168,3 +168,48 @@ Merge all the changes into the main branch.
 git merge webapp
 git branch -D webapp # <-- delete unused branch
 ```
+
+
+### WORK WITH MULTIPLE REPOS
+
+In some projects we need to share your work with the team, or with other team of other company...
+Well, look how to solve this problem.
+
+Inspect your situation:
+```bash
+git remote show origin 
+```
+
+![git_show_origin](img/git_show_origin.png)
+
+You need "up to date" in your working branch, pull or push to synchronize all places.
+
+In this case:
+```bash
+git pull
+```
+
+Now, in steps:
+
+1. Define a remote with multiple urls (with first repo url):
+```bash
+git remote add all git@github.com:iranzoferri/continuous-delivery-example.git
+```
+
+2. Set first push url (with first repo url):
+```bash
+git remote set-url --add --push all git@github.com:iranzoferri/continuous-delivery-example.git
+```
+
+3. Set second push url (with second repo url):
+```bash
+git remote set-url --add --push all git@bitbucket.org:iranzoferri/continuous-delivery-example.git
+```
+
+4. Push "main" branch (in this case, but you can select which you want) to "all" (Remember here "all" is a remote):
+```bash
+git push all main
+```
+
+See the result:
+![git_multi_push](img/git_multi_push.png)
